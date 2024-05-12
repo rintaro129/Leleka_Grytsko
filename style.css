@@ -21,10 +21,13 @@ body {
     width: 100%;
     min-width: fit-content;
     color: var(--main-text-color);
+    display: grid;
+    grid-template-rows: 5em auto auto 10em;
 }
 
 header {
     position: sticky;
+    grid-row: 1;
     top: 0;
     left: 0;
     margin: 0;
@@ -130,6 +133,7 @@ nav ul {
 
 
 .background-container {
+    grid-row: 2;
     position: sticky;
     top: min(calc(-30em + 25vh), calc(-30em + 7em)); 
     padding: 0;
@@ -172,6 +176,7 @@ nav ul {
     margin: 0;
 }
 main {
+    grid-row: 3;
     margin: 0 auto;
     width: 100%;
     max-width: var(--page-width);
@@ -196,6 +201,7 @@ main {
 
 
 footer {
+    grid-row: 4;
     height: 10em;
     display : grid;
     grid-template-columns: 50% 50%;
