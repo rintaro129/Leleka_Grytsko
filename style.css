@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Roboto+Slab:wght@100..900&display=swap');
+
+* {
+    font-family: "Roboto Slab", sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --header-color: #3f88c5;
+    --header-text-color: #fff; 
+    --main-text-color: #333333;
+    --footer-color: #f5d547;
+    --accent-color: #ec4e20;
+    --page-width: 2000px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width: fit-content;
+    color: var(--main-text-color);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin: 0;
+    height: 5em;
+    background-color: var(--header-color);
+    width: 100%;
+    min-width: fit-content;
+    display: grid;
+    grid-template-columns: minmax(auto, max-content) minmax(auto, 15em) auto minmax(max-content, 40em); /* somehow got it to work :) */
+    align-items: center;
+    z-index: 1;
+    color: var(--header-text-color);
+}
+
+.navbar {
+    height: 100%;
+    grid-column-start: 4;
+    padding: 0 0.5em 0 0.5em;
+}
+
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+.navbar ul li {
+    padding: 0.5em;
+}
+
+.nav-button {
+    text-decoration: none;
+    color: var(--header-text-color);
+    font-weight: bold;
+    font-size: large;
+}
+
+.logo {
+    height: inherit;
+    grid-column-start: 1;
+    display: flex;
+    padding: 0 0.5em 0 0.5em; 
+}
+
+
+.icon {
+    height: 100%;
+    padding: 0.5em;
+}
+
+.logo-name {
+    font-family: "Holtwood One SC", sans-serif;
+    font-size: x-large;
+    margin: 0;
+    padding: 0;
+    height: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 5em;
+    background-color: var(--header-color);
+    z-index: 1;
+}
+
+.logo:hover .dropdown-content {display: block;}
+
+nav ul {
+    list-style-type: none;
+}
+
+.logo-name a {
+    text-decoration: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+.search-div {
+    grid-column-start: 2;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5em 0 1em;
+    min-width:fit-content;
+}
+
+#search-input{
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    min-width: 5em;
+    /* width: 15em; */
+    font-size: 1em; 
+}
+
+
+.background-container {
+    position: sticky;
+    top: min(calc(-30em + 25vh), calc(-30em + 7em)); 
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 30em;
+    background: url(background.jpg) no-repeat center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid var(--main-text-color) 3px;
+} 
+
+.logo-background {
+    padding: 1em;
+    width: 50%;
+    min-width: fit-content;
+    height: 50%;
+    background-color: var(--header-text-color);
+    color: var(--main-text-color);
+    display: grid;
+    grid-template-rows: 50% 25% 25%;
+    place-items: center;
+}
+
+.icon {
+    grid-row-start: 1;
+}
+
+.logo-name {
+    grid-row-start: 2;
+}
+
+
+.desc {
+    grid-row-start: 3;
+    font-style: italic;
+    order: 1;
+    margin: 0;
+}
+main {
+    margin: 0 auto;
+    width: 100%;
+    max-width: var(--page-width);
+    display: grid;
+    grid-template-columns: 15em 1fr 15em;
+}
+
+.page-left, .page-right {
+    z-index: -1;
+    position: sticky;
+    align-self: start;
+    top: 7em;
+}
+
+.banner {
+    margin: 1em;
+}
+
+.banner a, .banner a img {
+    width: 100%;
+}
+
+
+footer {
+    height: 10em;
+    display : grid;
+    grid-template-columns: 50% 50%;
+    background-color: var(--footer-color);
+    color: var(--header-text-color);
+    place-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+.page-content {
+    padding: 0 2em 0 2em;
+    height: fit-content;
+}
+
+section {
+    font-size: large;
+}
+
+iframe {
+    width: 100%;
+    height: 50em;
+}
+
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book {
+    width:min-content;
+    margin: 1em;
+}
+
+.book > a {
+    color: var(--accent-color);
+}
+.book-image {
+    width: 10em;
+}
+
+.book-name {
+    
+    width: 100%;    
+}
+
+video {
+    margin: 1em;
+}
