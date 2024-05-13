@@ -25,7 +25,7 @@ body {
     grid-template-rows: 5em auto auto 10em;
 }
 
-header {
+.header {
     position: sticky;
     grid-row: 1;
     top: 0;
@@ -36,41 +36,49 @@ header {
     width: 100%;
     min-width: fit-content;
     display: grid;
-    grid-template-columns: minmax(auto, max-content) minmax(auto, 15em) auto minmax(max-content, 40em); /* somehow got it to work :) */
+    grid-template-columns: minmax(auto, max-content) minmax(5em, 15em) auto minmax(max-content, 40em); /* somehow got it to work :) */
     align-items: center;
     z-index: 1;
     color: var(--header-text-color);
 }
 
-.navbar {
+.header__navbar-contatiner {
     height: 100%;
     grid-column-start: 4;
     padding: 0 0.5em 0 0.5em;
 }
 
 
-.navbar ul {
+.header__navbar-contatiner__navbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
     height: inherit;
     display: flex;
     justify-content: space-between;
-    align-items: center;    
+    align-items: center;   
+    list-style-type: none; 
 }
 
-.navbar ul li {
+.header__navbar-contatiner__navbar__item {
     padding: 0.5em;
 }
 
-.nav-button {
+.header__navbar-contatiner__navbar__item__text {
     text-decoration: none;
     color: var(--header-text-color);
     font-weight: bold;
     font-size: large;
 }
 
-.logo {
+.header__logo__dropdown-content__nav-button {
+    text-decoration: none;
+    color: var(--header-text-color);
+    font-weight: bold;
+    font-size: large;
+}
+
+.header__logo {
     height: inherit;
     grid-column-start: 1;
     display: flex;
@@ -78,12 +86,13 @@ header {
 }
 
 
-.icon {
+.header__logo__icon {
     height: 100%;
     padding: 0.5em;
+    grid-row-start: 1;
 }
 
-.logo-name {
+.header__logo__name {
     font-family: "Holtwood One SC", sans-serif;
     font-size: x-large;
     margin: 0;
@@ -91,9 +100,10 @@ header {
     height: inherit;
     display: flex;
     align-items: center;
+    grid-row-start: 2;
 }
 
-.dropdown-content {
+.header__logo__dropdown-content {
     display: none;
     position: absolute;
     top: 5em;
@@ -101,13 +111,10 @@ header {
     z-index: 1;
 }
 
-.logo:hover .dropdown-content {display: block;}
+.header__logo:hover .header__logo__dropdown-content {display: block;}
 
-nav ul {
-    list-style-type: none;
-}
 
-.logo-name a {
+.header__logo__name__button {
     text-decoration: none;
     font-family: inherit;
     font-size: inherit;
@@ -122,11 +129,10 @@ nav ul {
     min-width:fit-content;
 }
 
-#search-input{
+.header__search-input{
     overflow-x: hidden;
     padding: 0;
     margin: 0;
-    min-width: 5em;
     /* width: 15em; */
     font-size: 1em; 
 }
@@ -148,7 +154,7 @@ nav ul {
     border-bottom: solid var(--main-text-color) 3px;
 } 
 
-.logo-background {
+.background-container__logo {
     padding: 1em;
     width: 50%;
     min-width: fit-content;
@@ -160,47 +166,72 @@ nav ul {
     place-items: center;
 }
 
-.icon {
+.background-container__logo__icon {
+    height: 100%;
+    padding: 0.5em;
     grid-row-start: 1;
 }
 
-.logo-name {
+.background-container__logo__name {
+    font-family: "Holtwood One SC", sans-serif;
+    font-size: x-large;
+    margin: 0;
+    padding: 0;
+    height: inherit;
+    display: flex;
+    align-items: center;
     grid-row-start: 2;
 }
 
-
-.desc {
+.background-container__logo__desc {
     grid-row-start: 3;
     font-style: italic;
     order: 1;
     margin: 0;
 }
-main {
+.main-container {
     grid-row: 3;
     margin: 0 auto;
     width: 100%;
     max-width: var(--page-width);
     display: grid;
-    grid-template-columns: 15em 1fr 15em;
+    grid-template-columns: 15em auto 15em;
 }
 
-.page-left, .page-right {
-    z-index: -1;
+.main-contatiner__banner-container {
     position: sticky;
     align-self: start;
     top: 7em;
 }
 
-.banner {
+.main-contatiner__banner-container--left {
+    grid-column: 1;
+}
+
+.main-contatiner__banner-container--right{
+    grid-column: 3;
+}
+
+.main-contatiner__banner-container__banner {
     margin: 1em;
 }
 
-.banner a, .banner a img {
+.main-contatiner__banner-container__banner a img{
+    display: block;
+    width: 100%;
+    transition: all 0.6s;
+}
+
+.main-contatiner__banner-container__banner a {
+    display: block;
     width: 100%;
 }
 
+.main-contatiner__banner-container__banner a img:hover {
+    transform: scale(1.07);
+}
 
-footer {
+.footer {
     grid-row: 4;
     height: 10em;
     display : grid;
@@ -210,45 +241,48 @@ footer {
     place-items: center;
 }
 
-h1 {
+.main-container__page-content  h1 {
     text-align: center;
 }
-.page-content {
+.main-container__page-content {
     padding: 0 2em 0 2em;
     height: fit-content;
+    width: 100%;
 }
 
-section {
-    font-size: large;
+.main-container__page-content  section {
+   font-size: large;
 }
 
-iframe {
+.main-container__page-content iframe {
     width: 100%;
     height: 50em;
 }
 
-.catalog {
+.main-container__page-content__catalog {
     display: flex;
     flex-wrap: wrap;
 }
 
-.book {
+.main-container__page-content__catalog__book {
     width:min-content;
     margin: 1em;
 }
 
-.book > a {
+.main-container__page-content__catalog__book__link {
     color: var(--accent-color);
 }
-.book-image {
+
+.main-container__page-content__catalog__book__link__image {
     width: 10em;
 }
 
-.book-name {
+.main-container__page-content__catalog__book__link__name {
     
     width: 100%;    
 }
 
-video {
+.main-container__page-content video {
     margin: 1em;
+    width: 100%;
 }
