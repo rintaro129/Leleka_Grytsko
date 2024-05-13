@@ -195,39 +195,39 @@ body {
     width: 100%;
     max-width: var(--page-width);
     display: grid;
-    grid-template-columns: 15em auto 15em;
+    grid-template-columns: minmax(auto, 15em) auto minmax(auto, 15em);
 }
 
-.main-contatiner__banner-container {
+.main-container__banner-container {
     position: sticky;
     align-self: start;
     top: 7em;
 }
 
-.main-contatiner__banner-container--left {
+.main-container__banner-container--left {
     grid-column: 1;
 }
 
-.main-contatiner__banner-container--right{
+.main-container__banner-container--right{
     grid-column: 3;
 }
 
-.main-contatiner__banner-container__banner {
+.main-container__banner-container__banner {
     margin: 1em;
 }
 
-.main-contatiner__banner-container__banner a img{
+.main-container__banner-container__banner a img{
     display: block;
     width: 100%;
     transition: all 0.6s;
 }
 
-.main-contatiner__banner-container__banner a {
+.main-container__banner-container__banner a {
     display: block;
     width: 100%;
 }
 
-.main-contatiner__banner-container__banner a img:hover {
+.main-container__banner-container__banner a img:hover {
     transform: scale(1.07);
 }
 
@@ -286,3 +286,80 @@ body {
     margin: 1em;
     width: 100%;
 }
+
+.main-container__page-content table {
+    width: 100%;
+}
+
+.main-container__page-content {
+    grid-column-start: 2;
+}
+
+.main-container__page-content__checkbox {
+    appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    border: solid 2px var(--header-color);
+    transition: background-color 0.5s;
+    transition: border 0.5s;
+}
+
+.main-container__page-content__checkbox:checked {
+    background-color: var(--accent-color);
+    border: solid 2px var(--footer-color);
+}
+
+.main-container__page-content__progress-bar {
+    width: 50%;
+    height: 2em;
+    border: solid 1px black;
+}
+
+.main-container__page-content__progress-bar__line {
+    height: 100%;
+    background-color: var(--header-color);
+    animation: main-container__page-content__progress-bar__animation  5s ease infinite; 
+}
+
+@keyframes main-container__page-content__progress-bar__animation {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-container__banner-container {
+        display: none;
+    }
+    
+    .main-container__page-content {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+}
+
+@media (max-width: 640px) {
+    .header__navbar-contatiner {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .background-container {
+        display: none;
+    }
+    .main-container {
+        grid-row-start: 2;
+        grid-row-end: 4;
+    }
+}
+
+/* @media (max-width: 480px) {
+    .header__logo__name {
+        display: none;
+    }
+} */
+
